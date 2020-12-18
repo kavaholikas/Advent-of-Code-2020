@@ -3,6 +3,9 @@ const d2 = require("./Days/d2");
 const d3 = require("./Days/d3");
 const d4 = require("./Days/d4");
 const d5 = require("./Days/d5");
+const d6 = require("./Days/d6");
+
+console.clear();
 
 //d1.PuzzleOne();
 //d1.PuzzleTwo();
@@ -16,8 +19,11 @@ const d5 = require("./Days/d5");
 //d4.PuzzleOne();
 //d4.PuzzleTwo();
 
-d5.PuzzleOne();
-d5.PuzzleTwo();
+//d5.PuzzleOne();
+//d5.PuzzleTwo();
+
+d6.PuzzleOne();
+d6.PuzzleTwo();
 
 
 console.log("Finished");
