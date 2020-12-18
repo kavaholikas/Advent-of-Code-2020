@@ -1,20 +1,12 @@
 const Utils = require("../Utils/Utils");
 
 exports.PuzzleOne = () => {
-    // Windows version
-    let input = Utils.ReadInput("d6").split("\n\r");
+    let input = Utils.ReadInput("d6").split("\n\n");
 
     let count = 0;
 
     input.forEach(line => {
-        console.log(line);
-
         let answers = line.split("\n").filter(c => c != "");
-
-        // read all letters
-        // check if already exist
-        // if not add to list
-
         let list = [];
 
         answers.forEach(a => {
@@ -24,17 +16,43 @@ exports.PuzzleOne = () => {
                 }
             }
         });
-        console.log(answers);
-        
-        list = list.filter(l => l != "\r");
-        console.log(list);
 
         count = count + list.length;
     });
 
     console.log(count);
+    Utils.WriteOutput("d6", "p1", count.toString());
 }
 
 exports.PuzzleTwo = () => {
+    let input = Utils.ReadInput("d6").split("\n\n");
 
+    let count = 0;
+
+    input.forEach(line => {
+      let answers = line.split("\n").filter(c => c != "");
+
+      let list = []; 
+
+      answers.forEach(a => {
+        for (let i = 0; i < a.length; i++) {
+          let index = list.findIndex(c => c.answer == a[i]);
+
+          if (index == -1) {
+            list.push({ answer: a[i], count: 1 });
+          } else {
+            list[index].count++;
+          }
+        }
+      });
+
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].count == answers.length) {
+          count++;
+        }
+      }
+    });
+
+  console.log(count);
+  Utils.WriteOutput("d6", "p2", count.toString());
 }
